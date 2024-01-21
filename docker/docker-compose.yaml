@@ -1,0 +1,21 @@
+version: "3.8"
+name: docker-example
+services:
+  backend:
+    container_name: backend
+    build:
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8080:8080"
+    tty: true
+    volumes:
+      - ./../backend:/app:cashed
+  frontend:
+    container_name: frontend
+    build:
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "5173:5173"
+    tty: true
+    volumes:
+      - ./../frontend:/app:cashed
