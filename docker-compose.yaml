@@ -4,18 +4,19 @@ services:
   backend:
     container_name: backend
     build:
-      dockerfile: backend/Dockerfile
+      context: backend
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    tty: true
     volumes:
-      - ./../backend:/app:cashed
+      - ./backend:/app
   frontend:
     container_name: frontend
     build:
-      dockerfile: frontend/Dockerfile
+      context: frontend
+      dockerfile: Dockerfile
     ports:
       - "5173:5173"
-    tty: true
     volumes:
-      - ./../frontend:/app:cashed
+      - ./frontend:/app
+      - /app/node_modules
