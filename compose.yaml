@@ -2,7 +2,6 @@ version: "3.8"
 name: docker-example
 services:
   backend:
-    container_name: backend
     build:
       context: backend
       dockerfile: Dockerfile
@@ -11,7 +10,6 @@ services:
     volumes:
       - ./backend:/app
   frontend:
-    container_name: frontend
     build:
       context: frontend
       dockerfile: Dockerfile
